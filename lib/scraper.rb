@@ -13,7 +13,7 @@ module Scraper
       scrap_this_url(url)
     end
 
-    posts.compact.sort { |d1, d2| d2.date <=> d1.date }
+    posts.compact
   end
 
   # rubocop:disable Metrics/AbcSize
