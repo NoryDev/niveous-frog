@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'job_post'
+
 # The Scraper module scraps the job posting pages and returs an array of
 # job posts from the last 7 days.
 module Scraper

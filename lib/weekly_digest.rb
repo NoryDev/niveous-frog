@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'scraper'
+require_relative 'notifier'
+
 # WeeklyDigest is the executor: scrap the posts and email them
 module WeeklyDigest
   def self.retrieve_and_send

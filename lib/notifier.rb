@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'erb_render'
+
 # Send the job posts by email
 class Notifier
   require 'mail'

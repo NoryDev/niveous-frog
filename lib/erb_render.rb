@@ -3,6 +3,8 @@
 # ErbRender is necessary to use Sinatra helpers (like :erb) outside of
 # controllers
 module ErbRender
+  require 'sinatra'
+
   include Sinatra::Templates
   include Sinatra::Helpers
 
