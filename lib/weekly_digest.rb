@@ -5,13 +5,20 @@ require_relative 'notifier'
 
 # WeeklyDigest is the executor: scrap the posts and email them
 module WeeklyDigest
-  def self.retrieve_and_send
-    posts = Scraper.scrap_posts
+  DAYS = %i[monday tuesday wednesday thursday friday saturday sunday].freeze
 
-    Notifier.email_me(ENV['MY_EMAIL'], posts)
+  def self.retrieve_and_send(urls: nil, email: nil, execution_day: :thursday)
+    return if inactive?(execution_day)
+
+    posts = Scraper.scrap_posts(urls)
+
+    Notifier.email_me(posts, email)
   end
 
-  def self.inactive?
-    ENV['INACTIVE'] || !Date.today.thursday?
+  def self.inactive?(execution_day = :thursday)
+    today = DAYS.find { |day| day == execution_day }
+    raise 'Invalid day' if today.nil?
+
+    ENV['INACTIVE'] || !Date.today.public_send("#{execution_day}?")
   end
 end

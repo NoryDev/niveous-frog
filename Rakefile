@@ -4,14 +4,13 @@ require 'rake/testtask'
 
 Rake::TestTask.new do |t|
   t.pattern = 'test/*_test.rb'
+  t.warning = false
 end
 
 desc 'scrap and send notification'
 task :weekly_digest do
   require_relative 'app'
   require_relative 'lib/weekly_digest'
-
-  next if WeeklyDigest.inactive?
 
   WeeklyDigest.retrieve_and_send
 end

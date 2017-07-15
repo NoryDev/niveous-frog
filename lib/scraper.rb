@@ -8,10 +8,8 @@ module Scraper
   require 'nokogiri'
   require 'open-uri'
 
-  URLS = [ENV['PAGE_1'], ENV['PAGE_2'], ENV['PAGE_3']].freeze
-
-  def self.scrap_posts
-    posts = URLS.flat_map do |url|
+  def self.scrap_posts(urls = ENV['PAGE'].split)
+    posts = urls.flat_map do |url|
       scrap_this_url(url)
     end
 

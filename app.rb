@@ -29,7 +29,7 @@ end
 
 configure :test do
   Mail.defaults do
-    delivery_method :logger
+    delivery_method :test
   end
 end
 
