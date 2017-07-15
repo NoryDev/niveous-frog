@@ -1,0 +1,20 @@
+language: ruby
+
+cache: bundler
+
+rvm:
+  - 2.4.0
+
+script:
+  - bundle exec rake
+
+notifications:
+  email: false
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: aIu+ldYLdLoLVWNUCNvuk7A05hT8eJntSXjQDfKe9Zp2pawNboJdzo1pBkdYS1Qmdy5KtLbrWHMOQq4rGCRFOmvHf4m+oJH02D906yPAgH1zV6PPP33eqvGtmYdQh2MaeSmC08YM3NMlGD73drSb+y2qmr2Y1sEKET+xZvqgIi8EbtnMv9/3mS+tyN0nESXsgiJg/YyGnq8GF3axO0sq/E9TAYokkDVKDVedKJZRIZg9M3xVOJ3CljZWwi0eZimJ+X2TZE4IN2JSO05I0D0tGlzR0glPj7XfVh2wLiiY6oTeWs8mUS8UX927x54IqlDAYzxD50J4cFUaaTNfQ7+SHYT+FvK3dvImRvIGR87/SaNj22JpPgwC2+KRnvZOYTqDJyT14XtrFDlMqQKN70CA71fsWJeGToGDHvUV0yyvOc+BK1D8bIEy2kVfyzww1M4A3rYR43/CRvbBf5y1wJqHIqUSKDdAXhWcbHzOvpst0hV9fffwzFYj+P6t4cY46OLqaU5f50dHO5jdd3WxoyyyYeVc8N/QEPbLwJ1JrQoO/2rw6XTpmKvzLS+Rj0wfNqsJt0Q7A6vKzvrNmLGi7JHQhctTaV2ftrN9uVZ8tw/mfYoWNB34ZOw5YbpULjHAfrSTSOb7iwt9t1rJLIZlivwLv0DuaxWAnsDiT7ny3AyEdo0=
+  app: niveous-frog
+  on:
+    repo: NoryDev/niveous-frog
