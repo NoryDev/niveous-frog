@@ -7,7 +7,8 @@ require_relative 'notifier'
 module WeeklyDigest
   DAYS = %i[monday tuesday wednesday thursday friday saturday sunday].freeze
 
-  def self.retrieve_and_send(urls: nil, email: nil, execution_day: :thursday)
+  def self.retrieve_and_send(urls: ENV['PAGE'].split, email: ENV['MY_EMAIL'],
+                             execution_day: :thursday)
     return if inactive?(execution_day)
 
     posts = Scraper.scrap_posts(urls)
