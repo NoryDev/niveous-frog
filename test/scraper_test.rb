@@ -13,7 +13,7 @@ class ScraperTest < Minitest::Test
     assert_equal first_result.href, 'http://www.test-size.com/full-post/'
     assert_equal first_result.company, 'Company'
     assert_equal first_result.description, 'Mini job description.'
-    assert_equal first_result.date, Date.parse('July 15, 2017')
+    assert_equal first_result.date, Date.parse('March 01, 2018')
   end
 
   def test_scrap_posts

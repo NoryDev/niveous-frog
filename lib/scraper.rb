@@ -23,7 +23,12 @@ module Scraper
 
     page.search('.product-listing-link-block').map do |post|
       date_txt = post.search('.product-listing-date').text
-      date = Date.parse(date_txt)
+
+      begin
+        date = Date.parse(date_txt)
+      rescue ArgumentError
+        next
+      end
 
       next if Date.today > date + 7
 
